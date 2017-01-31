@@ -1,18 +1,18 @@
 @inject('countries', 'App\Http\Utilities\Country')
-
+{{ csrf_field()}}
 <div class="form-group">
 	<label for="street">Street:</label>
-	<input type="text" name="street" class="form-control" id="street" >
+	<input type="text" name="street" class="form-control" id="street" required>
 </div>
 
 <div class="form-group">
 	<label for="city">City:</label>
-	<input type="text" name="city" class="form-control" id="city" >
+	<input type="text" name="city" class="form-control" id="city" required>
 </div>
 
 <div class="form-group">
 	<label for="zip">Zip/Postal Code:</label>
-	<input type="text" name="zip" class="form-control" id="zip" >
+	<input type="text" name="zip" class="form-control" id="zip" required>
 </div>
 
 <div class="form-group">
@@ -25,12 +25,12 @@
 </div>
 <div class="form-group">
 	<label for="state">State:</label>
-	<input type="text" name="state" class="form-control" id="state" >
+	<input type="text" name="state" class="form-control" id="state" required>
 </div>
 <hr>
 <div class="form-group">
 	<label for="price">Price:</label>
-	<input type="text" name="price" class="form-control" id="price" >
+	<input type="text" name="price" class="form-control" id="price" required>
 </div>
 
 <div class="form-group">
@@ -38,9 +38,9 @@
 	<textarea type="text" name="description" class="form-control" id="description" rows="10">
 	</textarea> 
 </div>		
-<div class="form-group">
+{{-- <div class="form-group">
 	<label for="photos">Photos:</label>
-	<input type="file" name="photos" class="form-control" id="photos" >
-</div>		
+	<input type="file" name="photos" class="form-control" id="photos" required>
+</div>	 --}}	
 
 <button type="submit" class="btn btn-primary">Create Flayer</button>

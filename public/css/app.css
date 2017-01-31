@@ -5730,7 +5730,13 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
+.form-control {
+  height: 99px; }
+
 body {
   padding-top: 70px; }
+
+.form-control {
+  height: 99px; }
 
 /*# sourceMappingURL=app.css.map */
