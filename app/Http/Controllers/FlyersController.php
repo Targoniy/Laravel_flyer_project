@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Flyer;
-use App\Http\Controllers\Controller;
+use App\Photo;
 use App\Http\Requests;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\FlyerRequest;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,7 @@ class FlyersController extends Controller
      */
     public function create()
     {
-        // flash()->overlay('Welcome', 'Thank you for signing');
+        flash()->overlay('Welcome', 'Thank you for signing');
 
         return view('flyers.create');
     }
@@ -53,11 +54,23 @@ class FlyersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($zip, $street)
     {
-        //
+        $flyer = Flyer::locatedAt($zip, $street);
+
+        return view('flyers.show', compact('flyer'));
     }
 
+    public function addPhoto($zip, $street, Request $request)
+    {
+        // $this->validate($request, [
+        //     'photo' => 'required|mimes: jpg, jpeg, png, bmp'
+        // ]);
+
+        $photo = Photo::fromForm($request->file('photo'));
+
+        Flyer::locatedAt($zip, $street)->addPhoto($photo);
+    }
     /**
      * Show the form for editing the specified resource.
      *
