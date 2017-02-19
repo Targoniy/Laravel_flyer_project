@@ -15,9 +15,7 @@
 			</ul>
 		 </div>
 	@endif
-	<div class="row">
-		<form action="/flyers" enctype="multipart/form-data" method="POST" class="col-md-6">
-			@include('flyers.form')
-		</form>
-	</div>
+	<form action="/flyers" enctype="multipart/form-data" method="POST" >
+		@include('flyers.form')
+	</form>
 @stop
