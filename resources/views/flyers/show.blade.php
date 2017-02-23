@@ -3,7 +3,7 @@
 @section('content')
 	
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-md-4">
 			<h1>{!! $flyer->street !!}</h1>
 			<h1>${!! number_format($flyer->price) !!}</h1>
 			<hr>
@@ -13,9 +13,15 @@
 			</div>
 		</div>
 
-		<div class="col-md-9">
-			@foreach ($flyer->photos as $photo)
-				<img src="{{ $photo->path }}" alt="">
+		<div class="col-md-8 gallery">
+			@foreach ($flyer->photos->chunk(4) as $set)
+				<div cl 2ass="row">
+					@foreach ($set as $photo)
+						<div class="col-md-3 gallery_image">
+							<img src="/{{ $photo->thumbnail_path }}" alt="">
+						</div>
+					@endforeach
+				</div>
 			@endforeach
 		</div>
 	</div>
