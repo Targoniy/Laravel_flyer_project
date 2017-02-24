@@ -25,7 +25,7 @@ class Photo extends Model
 
 	public static function named($name)
 	{
-		return (new static)->saveAs($name);
+			return (new static)->saveAs($name);
 	}
 
 	protected function saveAs($name)
