@@ -15,21 +15,23 @@
 
 		<div class="col-md-8 gallery">
 			@foreach ($flyer->photos->chunk(4) as $set)
-				<div cl 2ass="row">
+				<div class="row">
 					@foreach ($set as $photo)
 						<div class="col-md-3 gallery_image">
 							<img src="/{{ $photo->thumbnail_path }}" alt="">
-						</div>
+							</div>
 					@endforeach
 				</div>
 			@endforeach
+
+			@if ($user && $user->owns($flyer))
+				<form id="addPhotosForm" action="/{{ $flyer->zip }}/{{ $flyer->street }}/photos" method="POST" class="dropzone">
+				{{ csrf_field() }}
+				</form>
+			@endif
+
 		</div>
 	</div>
-	<hr>
-	<h1>Add photo</h1>
-	<form id="addPhotosForm" action="/{{ $flyer->zip }}/{{ $flyer->street }}/photos" method="POST" class="dropzone">
-	{{ csrf_field() }}
-	</form>
 @stop
 
 @section('scripts.footer')

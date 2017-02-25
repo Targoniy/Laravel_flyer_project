@@ -73,7 +73,6 @@ class FlyersController extends Controller
 
     public function addPhoto($zip, $street, ChangeFlyerRequest $request)
     {
-
         $photo = $this->makePhoto($request->file('photo'));
 
         Flyer::locatedAt($zip, $street)->addPhoto($photo);
