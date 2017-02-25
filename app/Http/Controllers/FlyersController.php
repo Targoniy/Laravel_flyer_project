@@ -7,9 +7,8 @@ use App\Photo;
 use Illuminate\Http\Request;
 use App\Http\Requests\FlyerRequest;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ChangeFlyerRequest;
+use App\Http\Requests\AddPhotoRequest;
 use App\Http\Controllers\Traits\AuthorizesUsers;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class FlyersController extends Controller
 {
@@ -71,20 +70,13 @@ class FlyersController extends Controller
         return view('flyers.show', compact('flyer'));
     }
 
-    public function addPhoto($zip, $street, ChangeFlyerRequest $request)
+    public function addPhoto($zip, $street, AddPhotoRequest $request)
     {
-        $photo = $this->makePhoto($request->file('photo'));
+        $photo = Photo::fromFile($request->file('photo'));
 
         Flyer::locatedAt($zip, $street)->addPhoto($photo);
     }
 
-    
-
-    protected function makePhoto(UploadedFile $file)
-    {
-        return Photo::named($file->getClientOriginalName())
-            ->move($file);
-    }
     /**
      * Show the form for editing the specified resource.
      *
