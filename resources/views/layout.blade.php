@@ -36,6 +36,7 @@
 		<div class="container">
   		@yield('content')
 		</div>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
     <script src="/js/libs.js"></script>
     @yield('scripts.footer')
         
