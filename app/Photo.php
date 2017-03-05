@@ -30,4 +30,14 @@ class Photo extends Model
 		$this->thumbnail_path = $this->baseDir() . '/tn-' . $name;
 	}
 
+	public function delete()
+	{
+		\File::delete([
+				$this->path,
+				$this->thumbnail_path
+			]);
+
+		parent::delete();
+	}		
+
 }
