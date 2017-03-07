@@ -15,7 +15,7 @@ class FlyersController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['show']]);
+        $this->middleware('auth', ['except' => ['show', 'all']]);
 
         parent::__construct();
     }
@@ -58,6 +58,7 @@ class FlyersController extends Controller
         return redirect(flyer_path($flyer));
     }
 
+
     /**
      * Display the specified resource.
      *
@@ -69,6 +70,13 @@ class FlyersController extends Controller
         $flyer = Flyer::locatedAt($zip, $street);
 
         return view('flyers.show', compact('flyer'));
+    }
+
+    public function all()
+    {
+        $flyers = Flyer::all();
+
+        return view('flyers.all', compact('flyers'));
     }
 
 
