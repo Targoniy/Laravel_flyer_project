@@ -79,6 +79,11 @@ class FlyersController extends Controller
         return view('flyers.all', compact('flyers'));
     }
 
+    public function about()
+    {
+        return view('about');
+    }
+
 
     /**
      * Show the form for editing the specified resource.
