@@ -4,7 +4,8 @@
 <div class="jumbotron">
 		<h1>Project Flyer</h1>
         <p>
-	        This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point to create something more unique by building on or modifying it.
+	        Learning project for creating flyer for saling anything.
+	        Just add several items of text, drag photo and thats it!
         </p>
 
         @if ($signedIn)

@@ -15,7 +15,7 @@ class FlyersController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['show', 'all']]);
+        $this->middleware('auth', ['except' => ['show','about','contact']]);
 
         parent::__construct();
     }
@@ -84,6 +84,10 @@ class FlyersController extends Controller
         return view('about');
     }
 
+    public function contact()
+    {
+        return view('contact');
+    }
 
     /**
      * Show the form for editing the specified resource.
