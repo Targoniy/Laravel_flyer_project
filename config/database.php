@@ -66,9 +66,10 @@ return [
 
         'pgsql' => [
             'driver'   => 'pgsql',
-            'host'     => env('DB_HOST', 'fast-savannah-85472.herokuapp.com'),
-            'database' => env('DB_DATABASE', 'postgres'),
-            'username' => env('DB_USERNAME', 'postgres'),
+            'host'     => env('DB_HOST', 'ec2-54-163-233-89.compute-1.amazonaws.com'),
+            'database' => env('DB_DATABASE', '
+d41q5k94qf52q2'),
+            'username' => env('DB_USERNAME', 'gixkeqjbhonifc'),
             'password' => env('DB_PASSWORD', ''),
             'charset'  => 'utf8',
             'prefix'   => '',
