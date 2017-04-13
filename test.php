@@ -1,17 +1,9 @@
-<?php 
-class A {
-    public static function who() {
-        echo __CLASS__;
-    }
-    public static function test() {
-        self::who();
-    }
-}
+<?php
 
-class B extends A {
-    public static function who() {
-        echo __CLASS__;
-    }
-}
+        function a($p) {
+            return 'Hello ' . $p();
+        }
 
-B::who();
+        echo a(function() {
+            return 'World';
+        });

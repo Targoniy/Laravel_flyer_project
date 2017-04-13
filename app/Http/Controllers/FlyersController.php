@@ -36,7 +36,9 @@ class FlyersController extends Controller
      */
     public function create()
     {
-        flash()->overlay('Welcome', 'Thank you for signing');
+        // if ( $this->user) {
+        //    flash()->overlay('Welcome!', 'Thank you for signing!');
+        // }
 
         return view('flyers.create');
     }
@@ -53,7 +55,7 @@ class FlyersController extends Controller
                 new Flyer($request->all())
         );
 
-        flash()->success('Success', 'Flyer created!');
+        flash()->success('Success.', 'Flyer created!');
 
         return redirect(flyer_path($flyer));
     }
@@ -95,8 +97,12 @@ class FlyersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($zip, $street)
     {
+        $flyer = Flyer::locatedAt($zip, $street);
+        // $flyer = Flyer::findOrFail($id);
+
+        return view('flyers.update', compact('flyer'));
         //
     }
 
@@ -107,9 +113,16 @@ class FlyersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($zip, $street, Request $request)
     {
-        //
+        $flyer = Flyer::locatedAt($zip, $street);
+
+        $flyer->fill($request->all())->save();
+
+        flash()->success('Success.', 'Flyer updated !');
+
+
+        return back();        
     }
 
     /**
@@ -120,6 +133,8 @@ class FlyersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Flyer::findOrFail($id)->delete();
+
+        return back();        //
     }
 }

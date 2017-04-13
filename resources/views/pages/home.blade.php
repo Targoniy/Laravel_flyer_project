@@ -5,7 +5,7 @@
 		<h1>Project Flyer</h1>
         <p>
 	        Learning project for creating flyer for saling anything.
-	        Just add several items of text, drag photo and thats it!
+	        Just add several items of text, drag photo and that's it!
         </p>
 
         @if ($signedIn)

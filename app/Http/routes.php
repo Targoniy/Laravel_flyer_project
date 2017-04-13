@@ -16,6 +16,11 @@ Route::get('all', 'FlyersController@all');//->middleware(['auth']);
 Route::get('about', 'FlyersController@about');
 Route::get('contact', 'FlyersController@contact');
 Route::get('{zip}/{street}', 'FlyersController@show');
-Route::post('{zip}/{street}/photos', 'PhotosController@store');
+Route::get('{zip}/{street}/edit', 'FlyersController@edit');
+Route::post('{zip}/{street}/flyers', 'FlyersController@update');
 
+
+Route::post('{zip}/{street}/photos', 'PhotosController@store');
 Route::delete('photos/{id}', 'PhotosController@destroy');
+Route::delete('flyer/{id}', 'FlyersController@destroy');
+

@@ -3,7 +3,10 @@
 @section('content')
 	 <h1>About page</h1>
 	 <h3>Learning project for creating flyer for saling anything.</br>
-        Just add several items of text, drag photo and thats it!</h3>
+        Just add several items of text, drag photo and that's it! <br>
+		In the "All flyers" tab you can see all your's flyers.<br>
+		There you can also edit them or delete entirely.
+        </h3>
       <br>
       
       <h3>Used tools:</h3>

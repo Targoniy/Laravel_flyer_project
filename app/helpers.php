@@ -23,7 +23,7 @@ function link_to($body, $path, $type)
 	$csrf = csrf_field();
 
 	if (is_object($path)) {
-		$action = '/' . $path->getTable();
+		$action = '/' . $path->getTable(); 
 
 		if (in_array($type, ['PUT','PATCH', 'DELETE'])) {
 			$action .= '/' . $path->getKey();
@@ -33,10 +33,10 @@ function link_to($body, $path, $type)
 	}
 
 	return <<<EOT
-		<form action="{$action}" method="POST">
-			<input type="hidden" name='_method' value='{$type}'>
+		<form class="" action="{$action}" method="POST">
+			<input class="input-group" type="hidden" name='_method' value='{$type}'>
 			$csrf
-			<button type="submit">{$body}</button>
+			<button class="btn-danger btn-xs" type="submit">{$body}</button>
 		</form>
 EOT;
 }

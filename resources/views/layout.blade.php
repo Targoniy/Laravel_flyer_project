@@ -16,15 +16,17 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li id="All"><a href="/all">All flyers</a></li>
+            <li><a href="/flyers/create/" class="btn">Create a Flyer</a></li>
             <li id="About"><a href="/about">About</a></li>
             <li id="Contact"><a href="/contact">Contact</a></li>
-          </ul>
-          @if ($signedIn)
+            <li id="Contact"><a href="/auth/logout">Logout</a></li>
+            @if ($signedIn)
             <p class="navbar-text navbar-right">
                 Hello, {{ $user->name }}
             </p>
-          @endif
-        </div><!--/.nav-collapse -->
+            @endif
+          </ul>
+        </div>
       </div>
     </nav>
 		<div class="container">
