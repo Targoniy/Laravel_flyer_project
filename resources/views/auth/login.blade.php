@@ -23,6 +23,13 @@
 						<button type="submit" class="btn btn-default">Login</button>
 					</div>
 			</form>
+				<h2>Or</h2>
+			<form action="/auth/register/" method="POST">
+				<div class="form-group">
+				{!! csrf_field() !!}
+					<button type="submit" class="btn btn-default">Register</button>
+				</div>
+			</form>
 			@include('errors.errors')	
 		</div>
 	</div>
